@@ -1,0 +1,57 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.alliancenic</groupId>
+	<artifactId>AllianceNicParent</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>AllianceNicParent</name>
+
+	<modules>
+		<module>AllianceNicEAR</module>
+	</modules>
+
+
+	<properties>
+		<frenchconnexion.version>0.0.1-SNAPSHOT</frenchconnexion.version>
+
+	</properties>
+	
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- AllianceNic -->
+			<dependency>
+				<groupId>com.alliancenic</groupId>
+				<artifactId>AllianceNicEAR</artifactId>
+				<version>${project.version}</version>
+				<optional>true</optional>
+			</dependency>
+			<!-- EndAllianceNic -->
+			<!-- FrenchConnexion -->
+			<dependency>
+				<groupId>com.french-connexion</groupId>
+				<artifactId>FrenchConnexionCommon</artifactId>
+				<version>${project.version}</version>
+				<optional>true</optional>
+			</dependency>
+			<dependency>
+				<groupId>com.french-connexion</groupId>
+				<artifactId>LogService</artifactId>
+				<version>${project.version}</version>
+				<type>ejb</type>
+				<optional>true</optional>
+			</dependency>
+			<dependency>
+				<groupId>com.french-connexion</groupId>
+				<artifactId>CommunicationService</artifactId>
+				<version>${project.version}</version>
+				<type>ejb</type>
+				<optional>true</optional>
+			</dependency>
+			
+			
+			<!-- end FrenchConnexion -->
+		</dependencies>
+	</dependencyManagement>
+</project>

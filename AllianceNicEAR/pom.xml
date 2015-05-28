@@ -1,0 +1,137 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<parent>
+		<artifactId>AllianceNicParent</artifactId>
+		<groupId>com.alliancenic</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>AllianceNicEAR</artifactId>
+	<name>AllianceNicEAR</name>
+	<packaging>ear</packaging>
+
+
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<configuration>
+					<finalName>AllianceNicEAR</finalName>
+
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+						</manifest>
+					</archive>
+
+
+					<modules>
+						<!-- JAVA Module -->
+
+						<jarModule>
+							<groupId>com.french-connexion</groupId>
+							<artifactId>FrenchConnexionCommon</artifactId>
+							<includeInApplicationXml>true</includeInApplicationXml>
+						</jarModule>
+						<jarModule>
+							<groupId>com.french-connexion</groupId>
+							<artifactId>CommunicationService</artifactId>
+							<includeInApplicationXml>true</includeInApplicationXml>
+						</jarModule>
+
+
+
+
+						<!-- WAR -->
+
+
+
+						<!-- SAR -->
+						<sarModule>
+							<groupId>com.french-connexion</groupId>
+							<artifactId>CommunicationServiceSAR</artifactId>
+						</sarModule>
+
+
+
+					</modules>
+					<displayName>AllianceNicEAR</displayName>
+
+
+				</configuration>
+
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>ear</goal>
+						</goals>
+					</execution>
+				</executions>
+
+			</plugin>
+			
+		</plugins>
+	</build>
+
+	<dependencies>
+	
+	<dependency>
+   <groupId>com.sun</groupId>
+   <artifactId>tools</artifactId>
+   <version>1.7.0</version>
+   <scope>system</scope>
+   <systemPath>${env.JAVA_HOME}/lib/tools.jar</systemPath>
+ </dependency>
+	
+	
+	
+
+
+		<!-- WAR -->
+
+
+		<!-- SAR -->
+
+		<dependency>
+			<groupId>com.french-connexion</groupId>
+			<artifactId>CommunicationServiceSAR</artifactId>
+			<type>sar</type>
+			<version>${project.parent.version}</version>
+		</dependency>
+		<!-- common -->
+		<dependency>
+			<groupId>com.french-connexion</groupId>
+			<artifactId>LogService</artifactId>
+			<type>ejb</type>
+			<version>${project.parent.version}</version>
+			<optional>false</optional>
+		</dependency>
+		<dependency>
+			<groupId>com.french-connexion</groupId>
+			<artifactId>FrenchConnexionCommon</artifactId>
+			<version>${project.parent.version}</version>
+			<optional>false</optional>
+		</dependency>
+		<dependency>
+			<groupId>com.french-connexion</groupId>
+			<artifactId>CommunicationService</artifactId>
+			<version>${project.parent.version}</version>
+			<optional>false</optional>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>1.4</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+
+	</dependencies>
+
+</project>
